@@ -1,6 +1,7 @@
 import { episodes } from "@/data/episodes";
 import { siteConfig } from "@/data/site";
 import { images } from "@/data/images";
+import { formatItunesDuration } from "@/lib/stats";
 
 export async function GET() {
   const items = episodes
@@ -9,12 +10,13 @@ export async function GET() {
       (ep) => `
     <item>
       <title><![CDATA[${ep.title}]]></title>
-      <description><![CDATA[${ep.description}]]></description>
+      <description><![CDATA[${ep.description}${ep.showNotes ? ` ${ep.showNotes}` : ""}]]></description>
       <link>${siteConfig.url}/episodes/${ep.slug}</link>
       <guid isPermaLink="true">${siteConfig.url}/episodes/${ep.slug}</guid>
       <pubDate>${new Date(ep.publishedAt).toUTCString()}</pubDate>
-      <itunes:duration>${ep.duration}:00</itunes:duration>
-      <enclosure url="${siteConfig.url}${ep.thumbnail}" type="image/svg+xml" />
+      <itunes:duration>${formatItunesDuration(ep.duration)}</itunes:duration>
+      <itunes:episodeType>${ep.type === "video" ? "full" : "full"}</itunes:episodeType>
+      <itunes:image href="${siteConfig.url}${ep.thumbnail}" />
     </item>`
     )
     .join("");
@@ -33,6 +35,8 @@ export async function GET() {
     </image>
     <itunes:author>${siteConfig.name}</itunes:author>
     <itunes:summary><![CDATA[${siteConfig.description}]]></itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="${siteConfig.url}${images.og}" />
     ${items}
   </channel>
 </rss>`;

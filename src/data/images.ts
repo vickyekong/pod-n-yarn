@@ -1,7 +1,12 @@
 /** Centralized image paths — swap with real photography in /public/images/ */
 export const images = {
   logo: {
-    icon: "/images/logo/icon.svg",
+    /** Full wordmark for light backgrounds (nav scrolled, light pages) */
+    color: "/images/logo/logo-color.png",
+    /** Full wordmark for dark backgrounds (hero nav, footer) */
+    white: "/images/logo/logo-white.png",
+    /** Favicon / app icon */
+    icon: "/images/logo/icon.png",
   },
   hosts: {
     boma: "/images/hosts/boma-bliss.svg",

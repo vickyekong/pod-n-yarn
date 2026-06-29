@@ -7,6 +7,7 @@ import { SocialIcon } from "@/components/ui/SocialIcon";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { CommunityForm } from "@/components/forms/CommunityForm";
 import { siteConfig } from "@/data/site";
+import { siteStats, formatStatCount } from "@/data/community";
 
 export const metadata: Metadata = {
   title: "Community",
@@ -71,9 +72,9 @@ export default function CommunityPage() {
           <FadeIn delay={0.3}>
             <div className="mt-16 grid gap-6 sm:grid-cols-3">
               {[
-                { label: "Yarn Gang Members", value: "10K+" },
-                { label: "Episodes Released", value: "50+" },
-                { label: "Stories Shared", value: "200+" },
+                { label: "Yarn Gang Members", value: formatStatCount(siteStats.communityMembers) },
+                { label: "Episodes Released", value: formatStatCount(siteStats.episodes) },
+                { label: "Stories Shared", value: formatStatCount(siteStats.storiesShared) },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-2xl bg-primary p-6 text-center text-primary-foreground">
                   <p className="font-heading text-3xl font-extrabold text-warm-gold">{stat.value}</p>

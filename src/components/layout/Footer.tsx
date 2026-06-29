@@ -17,8 +17,8 @@ export function Footer() {
               <p className="mt-4 text-sm leading-relaxed text-primary-foreground/70">
                 {siteConfig.description}
               </p>
-              <div className="mt-6 flex gap-3">
-                {Object.entries(siteConfig.social).slice(0, 4).map(([key, url]) => (
+              <div className="mt-6 flex flex-wrap gap-3">
+                {Object.entries(siteConfig.social).map(([key, url]) => (
                   <a
                     key={key}
                     href={url}
@@ -98,10 +98,10 @@ export function Footer() {
               © {new Date().getFullYear()} Pod n&apos; Yarn. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-xs text-primary-foreground/50">
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/privacy" className="hover:text-white">
                 Privacy
               </Link>
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/terms" className="hover:text-white">
                 Terms
               </Link>
               <a href={siteConfig.mediaKitUrl} className="hover:text-white">

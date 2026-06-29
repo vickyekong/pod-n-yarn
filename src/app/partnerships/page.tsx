@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { PageHero } from "@/components/ui/PageHero";
 import { Button } from "@/components/ui/Button";
-import { sponsors, pressMentions } from "@/data/content";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
+import { sponsors } from "@/data/content";
 import { siteConfig } from "@/data/site";
 import { Download, Mail } from "lucide-react";
 
@@ -22,14 +23,21 @@ export function PartnershipsContent() {
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {sponsors.map((sponsor) => (
-              <div
+              <a
                 key={sponsor.name}
-                className="editorial-card editorial-card-lift flex h-32 items-center justify-center rounded-2xl p-6"
+                href={sponsor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="editorial-card editorial-card-lift flex h-32 items-center justify-center rounded-2xl p-6 transition-opacity hover:opacity-90"
               >
-                <span className="font-heading text-lg font-bold text-muted-foreground">
-                  {sponsor.name}
-                </span>
-              </div>
+                <Image
+                  src={sponsor.logo}
+                  alt={`${sponsor.name} logo`}
+                  width={140}
+                  height={48}
+                  className="h-12 w-auto object-contain"
+                />
+              </a>
             ))}
           </div>
         </div>

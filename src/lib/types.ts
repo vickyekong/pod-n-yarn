@@ -23,7 +23,7 @@ export interface Episode {
   publishedAt: string;
   spotifyUrl: string;
   appleUrl: string;
-  youtubeUrl?: string;
+  youtubeWatchUrl?: string;
   showNotes?: string;
   featured?: boolean;
   popular?: boolean;
@@ -68,10 +68,19 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
+  body: string[];
   coverImage: string;
   author: string;
   publishedAt: string;
   readTime: number;
+}
+
+export interface PressMention {
+  outlet: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  url: string;
 }
 
 export interface Sponsor {

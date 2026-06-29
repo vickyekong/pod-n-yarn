@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
-  <rect width="800" height="600" fill="#F8F4ED"/>
-  <rect x="100" y="150" width="250" height="300" rx="12" fill="#0F3D2E"/>
-  <rect x="450" y="150" width="250" height="300" rx="12" fill="#E67E22" opacity="0.2"/>
-  <text x="225" y="320" text-anchor="middle" fill="#F8F4ED" font-size="48"></text>
-  <text x="575" y="320" text-anchor="middle" fill="#0F3D2E" font-size="24">Studio Lounge</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
+  <rect width="800" height="800" fill="#F8F4ED"/>
+  <rect x="120" y="280" width="220" height="280" rx="24" fill="#0F3D2E" opacity="0.9"/>
+  <rect x="460" y="280" width="220" height="280" rx="24" fill="#E67E22" opacity="0.25"/>
+  <rect x="160" y="340" width="140" height="16" rx="8" fill="#D4A017" opacity="0.8"/>
+  <rect x="500" y="340" width="140" height="16" rx="8" fill="#0F3D2E" opacity="0.4"/>
+  <circle cx="230" cy="460" r="36" fill="#1a5c45"/>
+  <circle cx="570" cy="460" r="36" fill="#E67E22" opacity="0.5"/>
 </svg>

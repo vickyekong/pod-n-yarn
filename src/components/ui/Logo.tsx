@@ -1,50 +1,48 @@
 import Link from "next/link";
-import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { images } from "@/data/images";
 
 interface LogoProps {
+  /** Use "dark" on green/dark backgrounds (white logo). Use "light" on cream/white backgrounds (color logo). */
   theme?: "light" | "dark";
+  size?: "sm" | "md" | "lg";
   className?: string;
 }
 
-export function Logo({ theme = "light", className }: LogoProps) {
-  const isDark = theme === "dark";
+const sizeClasses = {
+  sm: "h-8 w-auto max-w-[140px]",
+  md: "h-10 w-auto max-w-[180px]",
+  lg: "h-14 w-auto max-w-[260px]",
+};
+
+const sizeDimensions = {
+  sm: { width: 140, height: 32 },
+  md: { width: 180, height: 40 },
+  lg: { width: 260, height: 56 },
+};
+
+export function Logo({ theme = "light", size = "md", className }: LogoProps) {
+  const src = theme === "dark" ? images.logo.white : images.logo.color;
+  const dims = sizeDimensions[size];
 
   return (
-    <Link href="/" className={cn("group flex items-center gap-2.5", className)}>
-      <div
+    <Link
+      href="/"
+      className={cn("group inline-flex shrink-0 items-center", className)}
+      aria-label="Pod n' Yarn — Home"
+    >
+      <Image
+        src={src}
+        alt="Pod n' Yarn"
+        width={dims.width}
+        height={dims.height}
         className={cn(
-          "relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl transition-transform group-hover:scale-105",
-          isDark ? "ring-1 ring-white/20" : "ring-1 ring-border"
+          "object-contain object-left transition-transform duration-300 group-hover:scale-[1.02]",
+          sizeClasses[size]
         )}
-      >
-        <Image
-          src={images.logo.icon}
-          alt="Pod n' Yarn"
-          width={40}
-          height={40}
-          className="h-full w-full object-cover"
-        />
-      </div>
-      <div className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "font-heading text-lg font-extrabold tracking-tight",
-            isDark ? "text-white" : "text-foreground"
-          )}
-        >
-          Pod n&apos; Yarn
-        </span>
-        <span
-          className={cn(
-            "text-[10px] font-medium uppercase tracking-widest",
-            isDark ? "text-white/50" : "text-muted-foreground"
-          )}
-        >
-          Real Talk
-        </span>
-      </div>
+        priority
+      />
     </Link>
   );
 }

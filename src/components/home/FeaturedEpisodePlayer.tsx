@@ -28,21 +28,23 @@ export function FeaturedEpisodePlayer({ episode }: FeaturedEpisodePlayerProps) {
           </p>
         </div>
 
-        {showEmbed && episode.youtubeUrl ? (
-          <div className="relative aspect-video">
-            <iframe
-              src={episode.youtubeUrl}
-              title={episode.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 h-full w-full"
-            />
+        {showEmbed && episode.youtubeWatchUrl ? (
+          <div className="relative aspect-video flex flex-col items-center justify-center bg-black/60 p-8 text-center">
+            <p className="text-sm text-white/80">Full video available on our YouTube channel.</p>
+            <a
+              href={episode.youtubeWatchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 rounded-full bg-accent px-6 py-2 text-sm font-semibold text-white hover:bg-burnt-orange/90"
+            >
+              Watch on YouTube
+            </a>
           </div>
         ) : (
           <button
             type="button"
             onClick={() => {
-              if (episode.type === "video" && episode.youtubeUrl) {
+              if (episode.type === "video" && episode.youtubeWatchUrl) {
                 setShowEmbed(true);
               } else {
                 play(episode);

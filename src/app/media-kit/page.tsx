@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import { siteConfig, streamingPlatforms } from "@/data/site";
-import { siteStats } from "@/data/community";
+import { siteStats, formatStatCount } from "@/data/community";
 import { images } from "@/data/images";
 import { Download, Mail } from "lucide-react";
 
@@ -31,15 +32,15 @@ export default function MediaKitPage() {
               <h3 className="font-heading mt-8 text-lg font-bold">Audience Snapshot</h3>
               <ul className="mt-4 grid gap-3 sm:grid-cols-3">
                 <li className="rounded-xl bg-muted p-4 text-center">
-                  <p className="font-heading text-2xl font-bold text-accent">{siteStats.episodes}+</p>
+                  <p className="font-heading text-2xl font-bold text-accent">{formatStatCount(siteStats.episodes)}</p>
                   <p className="text-xs text-muted-foreground">Episodes</p>
                 </li>
                 <li className="rounded-xl bg-muted p-4 text-center">
-                  <p className="font-heading text-2xl font-bold text-accent">{siteStats.listeners.toLocaleString()}+</p>
+                  <p className="font-heading text-2xl font-bold text-accent">{formatStatCount(siteStats.listeners)}</p>
                   <p className="text-xs text-muted-foreground">Listeners</p>
                 </li>
                 <li className="rounded-xl bg-muted p-4 text-center">
-                  <p className="font-heading text-2xl font-bold text-accent">{siteStats.streams.toLocaleString()}+</p>
+                  <p className="font-heading text-2xl font-bold text-accent">{formatStatCount(siteStats.streams)}</p>
                   <p className="text-xs text-muted-foreground">Streams</p>
                 </li>
               </ul>
@@ -55,12 +56,42 @@ export default function MediaKitPage() {
 
               <h3 className="font-heading mt-8 text-lg font-bold">Brand Assets</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Logo and cover art available for press use. Contact us for high-resolution files.
+                Use the color logo on light backgrounds and the white logo on dark or green backgrounds.
               </p>
-              <ul className="mt-3 space-y-1 text-sm">
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-xl border border-border bg-[#F8F4ED] p-6">
+                  <Logo theme="light" size="lg" className="pointer-events-none" />
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Light backgrounds
+                  </p>
+                  <a
+                    href={images.logo.color}
+                    download
+                    className="mt-2 inline-block text-sm text-accent hover:underline"
+                  >
+                    Download color logo (PNG)
+                  </a>
+                </div>
+                <div className="rounded-xl border border-border bg-primary p-6">
+                  <Logo theme="dark" size="lg" className="pointer-events-none" />
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">
+                    Dark backgrounds
+                  </p>
+                  <a
+                    href={images.logo.white}
+                    download
+                    className="mt-2 inline-block text-sm text-warm-gold hover:underline"
+                  >
+                    Download white logo (PNG)
+                  </a>
+                </div>
+              </div>
+
+              <ul className="mt-4 space-y-1 text-sm">
                 <li>
                   <a href={images.logo.icon} className="text-accent hover:underline" download>
-                    Download logo (SVG)
+                    Download app icon (PNG)
                   </a>
                 </li>
                 <li>

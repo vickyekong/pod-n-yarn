@@ -63,7 +63,7 @@ export function StickyAudioPlayer() {
             <div className="relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-lg sm:block">
               <Image
                 src={currentEpisode.thumbnail}
-                alt=""
+                alt={currentEpisode.title}
                 fill
                 className="object-cover"
               />

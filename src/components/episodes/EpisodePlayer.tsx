@@ -17,7 +17,7 @@ export function EpisodePlayer({ episode }: EpisodePlayerProps) {
 
   return (
     <div className="overflow-hidden rounded-2xl bg-black">
-      {episode.type === "video" && episode.youtubeUrl ? (
+      {episode.type === "video" && episode.youtubeWatchUrl ? (
         <div className="relative aspect-video">
           <Image
             src={episode.thumbnail}
@@ -26,16 +26,16 @@ export function EpisodePlayer({ episode }: EpisodePlayerProps) {
             className="object-cover opacity-80"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
-            <button
-              onClick={() => (isCurrent ? toggle() : play(episode))}
+            <a
+              href={episode.youtubeWatchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-20 w-20 items-center justify-center rounded-full bg-accent text-white shadow-2xl transition-transform hover:scale-110"
+              aria-label={`Watch ${episode.title} on YouTube`}
             >
               <Play className="ml-1 h-8 w-8" />
-            </button>
-            {playing && <Waveform className="mt-6 h-8" color="bg-accent" />}
-            <p className="mt-4 text-sm text-white/70">
-              {playing ? "Now Playing" : "Click to play"}
-            </p>
+            </a>
+            <p className="mt-4 text-sm text-white/70">Watch on YouTube</p>
           </div>
         </div>
       ) : (

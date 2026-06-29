@@ -8,7 +8,7 @@ export function PodcastJsonLd() {
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    image: `${siteConfig.url}${images.og}`,
+    image: `${siteConfig.url}${images.logo.color}`,
     author: {
       "@type": "Organization",
       name: siteConfig.name,

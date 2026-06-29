@@ -29,7 +29,7 @@ export function Navbar() {
 
   const isHome = pathname === "/";
   const isTransparent = isHome && !scrolled && !isOpen;
-  const logoTheme = isTransparent ? "dark" : "light";
+  const logoTheme = isTransparent || theme === "dark" ? "dark" : "light";
 
   return (
     <header

@@ -3,12 +3,48 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
 import { images } from "@/data/images";
 import { siteConfig } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 const btsImages = [
-  { src: images.studio.bts1, alt: "Microphone setup in studio" },
-  { src: images.studio.bts2, alt: "Studio lounge area" },
-  { src: images.studio.bts3, alt: "Episode planning board" },
+  { src: images.studio.bts1, label: "Mic setup" },
+  { src: images.studio.bts2, label: "Studio lounge" },
+  { src: images.studio.bts3, label: "Episode planning" },
 ];
+
+function StudioPhoto({
+  src,
+  label,
+  className,
+  priority,
+}: {
+  src: string;
+  label: string;
+  className?: string;
+  priority?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-2xl border border-white/10 bg-[#F8F4ED]/10",
+        className
+      )}
+    >
+      <Image
+        src={src}
+        alt={label}
+        fill
+        className="object-cover"
+        sizes="(max-width: 1024px) 50vw, 25vw"
+        priority={priority}
+      />
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent px-4 py-3">
+        <p className="text-left text-xs font-semibold uppercase tracking-wider text-white/90">
+          {label}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export function AboutSection() {
   return (
@@ -45,18 +81,19 @@ export function AboutSection() {
 
           <FadeIn delay={0.2} direction="left">
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative col-span-2 aspect-video overflow-hidden rounded-2xl">
-                <Image
-                  src={images.studio.hero}
-                  alt="Pod n' Yarn recording session"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <StudioPhoto
+                src={images.studio.hero}
+                label="Recording session"
+                className="relative col-span-2 aspect-video"
+                priority
+              />
               {btsImages.map((img) => (
-                <div key={img.src} className="relative aspect-square overflow-hidden rounded-2xl">
-                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
-                </div>
+                <StudioPhoto
+                  key={img.src}
+                  src={img.src}
+                  label={img.label}
+                  className="relative aspect-square"
+                />
               ))}
             </div>
           </FadeIn>

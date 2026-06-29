@@ -93,9 +93,13 @@ export default function ShopPage() {
           </div>
 
           <FadeIn delay={0.3}>
-            <p className="mt-12 text-center text-sm text-muted-foreground">
-              Demo store — integrate Stripe or Paystack for checkout.
-            </p>
+            <div className="mt-12 rounded-2xl border border-border bg-muted p-8 text-center">
+              <p className="font-heading text-lg font-bold">Checkout Coming Soon</p>
+              <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
+                Online checkout with Paystack is on the way. Add items to your cart now — we will
+                notify Yarn Gang members when ordering goes live.
+              </p>
+            </div>
           </FadeIn>
         </div>
       </section>

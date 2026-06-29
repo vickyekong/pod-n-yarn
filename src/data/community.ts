@@ -1,8 +1,5 @@
-export const siteStats = {
-  episodes: 50,
-  listeners: 10000,
-  streams: 500000,
-};
+/** Re-export computed stats — see lib/stats.ts for source of truth */
+export { siteStats, formatStatCount } from "@/lib/stats";
 
 export const questionOfTheWeek = {
   question: "Would you japa for love or stay for family?",

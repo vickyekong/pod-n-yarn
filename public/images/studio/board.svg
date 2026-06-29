@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
-  <rect width="800" height="600" fill="#111111"/>
-  <rect x="80" y="80" width="640" height="440" rx="8" fill="#0F3D2E"/>
-  <rect x="120" y="140" width="180" height="4" fill="#E67E22"/>
-  <rect x="120" y="180" width="140" height="4" fill="#D4A017" opacity="0.6"/>
-  <rect x="120" y="220" width="200" height="4" fill="#D4A017" opacity="0.4"/>
-  <text x="400" y="400" text-anchor="middle" fill="#F8F4ED" font-size="20">Episode Planning Board</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
+  <rect width="800" height="800" fill="#0F3D2E"/>
+  <rect x="80" y="120" width="640" height="480" rx="16" fill="#1a5c45"/>
+  <rect x="120" y="180" width="200" height="8" rx="4" fill="#E67E22"/>
+  <rect x="120" y="220" width="160" height="8" rx="4" fill="#D4A017" opacity="0.7"/>
+  <rect x="120" y="260" width="240" height="8" rx="4" fill="#D4A017" opacity="0.5"/>
+  <rect x="120" y="300" width="180" height="8" rx="4" fill="#F8F4ED" opacity="0.25"/>
+  <rect x="480" y="180" width="180" height="120" rx="12" fill="#E67E22" opacity="0.35"/>
+  <circle cx="570" cy="240" r="28" fill="#D4A017" opacity="0.6"/>
 </svg>

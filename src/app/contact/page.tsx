@@ -35,6 +35,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     required
+                    placeholder="Your full name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent"
@@ -45,6 +46,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     required
+                    placeholder="you@example.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent"
@@ -58,7 +60,9 @@ export default function ContactPage() {
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                     className="w-full rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent"
                   >
-                    <option value="">Select a topic</option>
+                    <option value="" disabled>
+                      Choose a topic
+                    </option>
                     <option value="partnership">Partnership / Sponsorship</option>
                     <option value="press">Press / Media</option>
                     <option value="guest">Guest Suggestion</option>
@@ -70,6 +74,7 @@ export default function ContactPage() {
                   <textarea
                     required
                     rows={5}
+                    placeholder="Tell us how we can help — partnerships, press, guest ideas, or general feedback."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     className="w-full resize-none rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent"

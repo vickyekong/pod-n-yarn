@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import { PageHero } from "@/components/ui/PageHero";
-import { blogPosts } from "@/data/content";
+import { getBlogPostBySlug, blogPosts } from "@/data/content";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -14,14 +14,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = getBlogPostBySlug(slug);
   if (!post) return { title: "Not Found" };
   return { title: post.title, description: post.excerpt };
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
   return (
@@ -40,12 +40,13 @@ export default async function BlogPostPage({ params }: Props) {
             })}{" "}
             · {post.readTime} min read
           </p>
-          <div className="show-notes mt-8">
+          <div className="show-notes mt-8 space-y-6">
             <p className="text-lg leading-relaxed text-muted-foreground">{post.excerpt}</p>
-            <p className="mt-6 leading-relaxed text-muted-foreground">
-              This is a placeholder article. Connect a CMS like Sanity or Contentful to manage
-              full blog content, rich text, and media assets.
-            </p>
+            {post.body.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)} className="leading-relaxed text-muted-foreground">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </article>

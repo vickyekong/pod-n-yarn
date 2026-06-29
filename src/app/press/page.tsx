@@ -22,20 +22,25 @@ export default function PressPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {pressMentions.map((mention, i) => (
               <FadeIn key={mention.title} delay={i * 0.08}>
-                <article className="editorial-card editorial-card-lift h-full rounded-2xl p-6 md:p-8">
+                <article className="editorial-card editorial-card-lift flex h-full flex-col rounded-2xl p-6 md:p-8">
                   <p className="text-xs font-semibold uppercase tracking-wider text-accent">
                     {mention.outlet}
                   </p>
                   <h2 className="font-heading mt-3 text-xl font-bold leading-snug">
                     {mention.title}
                   </h2>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {mention.excerpt}
+                  </p>
                   <p className="mt-3 text-sm text-muted-foreground">{mention.date}</p>
-                  <Link
-                    href="/contact"
+                  <a
+                    href={mention.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-4 inline-block text-sm font-semibold text-accent hover:underline"
                   >
-                    Request full article →
-                  </Link>
+                    Read on {mention.outlet} →
+                  </a>
                 </article>
               </FadeIn>
             ))}

@@ -1,5 +1,8 @@
 import type { Episode } from "@/lib/types";
 import { images } from "@/data/images";
+import { siteConfig } from "@/data/site";
+
+const youtubeChannel = siteConfig.social.youtube;
 
 export const episodes: Episode[] = [
   {
@@ -17,7 +20,7 @@ export const episodes: Episode[] = [
     publishedAt: "2026-06-20",
     spotifyUrl: "https://open.spotify.com/show/podnyarn",
     appleUrl: "https://podcasts.apple.com/podnyarn",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    youtubeWatchUrl: youtubeChannel,
     featured: true,
     popular: true,
     plays: 42000,
@@ -59,7 +62,7 @@ export const episodes: Episode[] = [
     publishedAt: "2026-06-06",
     spotifyUrl: "https://open.spotify.com/show/podnyarn",
     appleUrl: "https://podcasts.apple.com/podnyarn",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    youtubeWatchUrl: youtubeChannel,
     plays: 31000,
     showNotes:
       "From audition rooms to red carpets — the unfiltered journey of breaking into Nigeria's film industry.",
@@ -98,7 +101,7 @@ export const episodes: Episode[] = [
     publishedAt: "2026-05-23",
     spotifyUrl: "https://open.spotify.com/show/podnyarn",
     appleUrl: "https://podcasts.apple.com/podnyarn",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    youtubeWatchUrl: youtubeChannel,
     popular: true,
     plays: 45000,
     showNotes:
@@ -138,7 +141,7 @@ export const episodes: Episode[] = [
     publishedAt: "2026-05-09",
     spotifyUrl: "https://open.spotify.com/show/podnyarn",
     appleUrl: "https://podcasts.apple.com/podnyarn",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    youtubeWatchUrl: youtubeChannel,
     popular: true,
     plays: 61000,
     showNotes:

@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: [{ url: "/images/logo/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/images/logo/icon.svg", type: "image/svg+xml" }],
+    icon: [{ url: images.logo.icon, type: "image/png" }],
+    apple: [{ url: images.logo.icon, type: "image/png" }],
   },
   alternates: {
     types: {

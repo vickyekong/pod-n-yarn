@@ -107,8 +107,8 @@ export default async function EpisodeDetailPage({ params }: Props) {
                 <Button href={episode.appleUrl} variant="outline" size="sm">
                   Apple Podcasts
                 </Button>
-                {episode.youtubeUrl && (
-                  <Button href={episode.youtubeUrl} variant="outline" size="sm">
+                {episode.youtubeWatchUrl && (
+                  <Button href={episode.youtubeWatchUrl} variant="outline" size="sm">
                     YouTube
                   </Button>
                 )}

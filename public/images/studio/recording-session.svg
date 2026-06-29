@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
-  <rect width="1600" height="900" fill="#111111"/>
-  <ellipse cx="800" cy="450" rx="600" ry="200" fill="#0F3D2E" opacity="0.5"/>
-  <rect x="500" y="200" width="120" height="400" rx="60" fill="#E67E22" opacity="0.8"/>
-  <rect x="640" y="280" width="80" height="320" rx="40" fill="#D4A017" opacity="0.6"/>
-  <circle cx="800" cy="350" r="120" fill="#0F3D2E" stroke="#E67E22" stroke-width="4"/>
-  <path d="M760 350 L800 300 L840 350 L800 400 Z" fill="#E67E22"/>
-  <text x="800" y="680" text-anchor="middle" fill="#F8F4ED" font-family="system-ui" font-size="32" font-weight="600">Recording Session · Pod n&apos; Yarn</text>
+  <rect width="1600" height="900" fill="#F8F4ED"/>
+  <rect x="0" y="720" width="1600" height="180" fill="#0F3D2E" opacity="0.08"/>
+  <circle cx="800" cy="380" r="140" fill="#0F3D2E" opacity="0.12"/>
+  <rect x="760" y="240" width="80" height="200" rx="40" fill="#0F3D2E"/>
+  <rect x="740" y="220" width="120" height="60" rx="30" fill="#1a5c45"/>
+  <rect x="770" y="440" width="60" height="80" rx="8" fill="#E67E22" opacity="0.85"/>
+  <rect x="720" y="520" width="160" height="16" rx="8" fill="#D4A017"/>
 </svg>
