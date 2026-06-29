@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import { ShoppingBag } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { FadeIn } from "@/components/ui/FadeIn";

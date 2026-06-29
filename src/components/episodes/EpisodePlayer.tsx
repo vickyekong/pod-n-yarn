@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import { Play } from "lucide-react";
 import type { Episode } from "@/lib/types";
 import { useAudioPlayer } from "@/components/layout/AudioPlayerProvider";
@@ -39,7 +39,7 @@ export function EpisodePlayer({ episode }: EpisodePlayerProps) {
           </div>
         </div>
       ) : (
-        <div className="relative aspect-[2/1] md:aspect-[21/9]">
+        <div className="relative aspect-video">
           <Image
             src={episode.thumbnail}
             alt={episode.title}

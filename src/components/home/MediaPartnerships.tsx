@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import Link from "next/link";
 import { Download, Mail } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";

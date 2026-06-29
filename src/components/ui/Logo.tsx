@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import { cn } from "@/lib/utils";
 import { images } from "@/data/images";
 
@@ -21,7 +21,7 @@ export function Logo({ theme = "light", className }: LogoProps) {
       >
         <Image
           src={images.logo.icon}
-          alt=""
+          alt="Pod n' Yarn"
           width={40}
           height={40}
           className="h-full w-full object-cover"

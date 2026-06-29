@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import Link from "next/link";
 import type { Guest } from "@/lib/types";
 

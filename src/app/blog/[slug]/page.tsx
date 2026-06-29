@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import { PageHero } from "@/components/ui/PageHero";
 import { blogPosts } from "@/data/content";
 

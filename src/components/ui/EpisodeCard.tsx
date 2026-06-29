@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Play, Headphones, Video } from "lucide-react";
@@ -66,7 +66,7 @@ export function EpisodeCard({ episode, variant = "default", index = 0 }: Episode
       transition={{ delay: index * 0.06, duration: 0.5 }}
       className="group editorial-card editorial-card-lift flex flex-col overflow-hidden rounded-2xl"
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-video overflow-hidden">
         <Link href={`/episodes/${episode.slug}`} className="block h-full w-full">
           <Image
             src={episode.thumbnail}

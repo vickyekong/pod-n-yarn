@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import type { Episode } from "@/lib/types";

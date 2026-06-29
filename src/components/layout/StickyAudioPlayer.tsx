@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import Link from "next/link";
 import { Play, Pause, X, SkipBack, SkipForward, Volume2, VolumeX } from "lucide-react";
 import { useAudioPlayer } from "@/components/layout/AudioPlayerProvider";

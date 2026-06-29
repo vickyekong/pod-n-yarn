@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { OptimizedImage as Image } from "@/components/ui/OptimizedImage";
 import type { Host } from "@/lib/types";
 import { SocialIcon } from "@/components/ui/SocialIcon";
 
