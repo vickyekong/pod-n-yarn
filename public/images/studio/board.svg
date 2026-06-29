@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#111111"/>
+  <rect x="80" y="80" width="640" height="440" rx="8" fill="#0F3D2E"/>
+  <rect x="120" y="140" width="180" height="4" fill="#E67E22"/>
+  <rect x="120" y="180" width="140" height="4" fill="#D4A017" opacity="0.6"/>
+  <rect x="120" y="220" width="200" height="4" fill="#D4A017" opacity="0.4"/>
+  <text x="400" y="400" text-anchor="middle" fill="#F8F4ED" font-size="20">Episode Planning Board</text>
+</svg>

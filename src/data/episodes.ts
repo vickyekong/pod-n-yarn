@@ -1,4 +1,5 @@
 import type { Episode } from "@/lib/types";
+import { images } from "@/data/images";
 
 export const episodes: Episode[] = [
   {
@@ -10,14 +11,16 @@ export const episodes: Episode[] = [
     duration: 78,
     guestName: "Temi Adeyemi",
     guestSlug: "temi-adeyemi",
-    thumbnail: "https://images.unsplash.com/photo-1478737272769-f78574dee846?w=800&q=80",
+    thumbnail: images.episodes.love,
     type: "video",
     topics: ["relationships", "culture", "lifestyle"],
     publishedAt: "2026-06-20",
-    spotifyUrl: "#",
-    appleUrl: "#",
-    youtubeUrl: "https://youtube.com/watch?v=example",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     featured: true,
+    popular: true,
+    plays: 42000,
     showNotes:
       "In this episode, we unpack the realities of dating in Nigeria's busiest city. From Instagram love to family pressure, nothing is off limits.",
   },
@@ -30,12 +33,14 @@ export const episodes: Episode[] = [
     duration: 92,
     guestName: "Chidi Okonkwo",
     guestSlug: "chidi-okonkwo",
-    thumbnail: "https://images.unsplash.com/photo-1591115765373-5207764f72f7?w=800&q=80",
+    thumbnail: images.episodes.startup,
     type: "audio",
     topics: ["career-business", "culture"],
     publishedAt: "2026-06-13",
-    spotifyUrl: "#",
-    appleUrl: "#",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    popular: true,
+    plays: 38500,
     showNotes:
       "Real talk about bootstrapping, side hustles, and the hustle culture that defines Nigerian entrepreneurship.",
   },
@@ -48,13 +53,14 @@ export const episodes: Episode[] = [
     duration: 65,
     guestName: "Adaeze Nwosu",
     guestSlug: "adaeze-nwosu",
-    thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+    thumbnail: images.episodes.nollywood,
     type: "video",
     topics: ["entertainment", "culture"],
     publishedAt: "2026-06-06",
-    spotifyUrl: "#",
-    appleUrl: "#",
-    youtubeUrl: "https://youtube.com/watch?v=example2",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    plays: 31000,
     showNotes:
       "From audition rooms to red carpets — the unfiltered journey of breaking into Nigeria's film industry.",
   },
@@ -67,12 +73,13 @@ export const episodes: Episode[] = [
     duration: 84,
     guestName: "Pastor Ifeanyi Mba",
     guestSlug: "ifeanyi-mba",
-    thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    thumbnail: images.episodes.faith,
     type: "audio",
     topics: ["faith", "culture", "hot-takes"],
     publishedAt: "2026-05-30",
-    spotifyUrl: "#",
-    appleUrl: "#",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    plays: 28000,
     showNotes:
       "We tackle the tension between ancestral traditions and contemporary faith practices in Nigerian homes.",
   },
@@ -85,13 +92,15 @@ export const episodes: Episode[] = [
     duration: 71,
     guestName: "Kemi Balogun",
     guestSlug: "kemi-balogun",
-    thumbnail: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80",
+    thumbnail: images.episodes.afrobeats,
     type: "video",
     topics: ["entertainment", "culture", "lifestyle"],
     publishedAt: "2026-05-23",
-    spotifyUrl: "#",
-    appleUrl: "#",
-    youtubeUrl: "https://youtube.com/watch?v=example3",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    popular: true,
+    plays: 45000,
     showNotes:
       "From Fela to Burna — tracing the lineage of Afrobeats and its impact on global pop culture.",
   },
@@ -104,12 +113,13 @@ export const episodes: Episode[] = [
     duration: 88,
     guestName: "Dr. Funke Oladipo",
     guestSlug: "funke-oladipo",
-    thumbnail: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
+    thumbnail: images.episodes.mental,
     type: "audio",
     topics: ["lifestyle", "faith", "hot-takes"],
     publishedAt: "2026-05-16",
-    spotifyUrl: "#",
-    appleUrl: "#",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    plays: 52000,
     showNotes:
       "A licensed therapist joins us to discuss stigma, healing, and why 'just pray about it' isn't always enough.",
   },
@@ -122,13 +132,15 @@ export const episodes: Episode[] = [
     duration: 95,
     guestName: "Emeka & Zainab",
     guestSlug: "emeka-zainab",
-    thumbnail: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+    thumbnail: images.episodes.japa,
     type: "video",
     topics: ["career-business", "culture", "hot-takes"],
     publishedAt: "2026-05-09",
-    spotifyUrl: "#",
-    appleUrl: "#",
-    youtubeUrl: "https://youtube.com/watch?v=example4",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    popular: true,
+    plays: 61000,
     showNotes:
       "The most debated topic in Nigerian Twitter — we bring real stories from both sides of the ocean.",
   },
@@ -141,12 +153,13 @@ export const episodes: Episode[] = [
     duration: 58,
     guestName: "Bola 'Suya Queen' Hassan",
     guestSlug: "bola-hassan",
-    thumbnail: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+    thumbnail: images.episodes.food,
     type: "audio",
     topics: ["lifestyle", "culture"],
     publishedAt: "2026-05-02",
-    spotifyUrl: "#",
-    appleUrl: "#",
+    spotifyUrl: "https://open.spotify.com/show/podnyarn",
+    appleUrl: "https://podcasts.apple.com/podnyarn",
+    plays: 24000,
     showNotes:
       "Because every great conversation in Nigeria happens over food. We explore Lagos street food culture.",
   },
@@ -166,7 +179,24 @@ export function getLatestEpisodes(count = 6): Episode[] {
     .slice(0, count);
 }
 
+export function getPopularEpisodes(count = 6): Episode[] {
+  return [...episodes]
+    .sort((a, b) => (b.plays ?? 0) - (a.plays ?? 0))
+    .slice(0, count);
+}
+
 export function getEpisodesByTopic(topic: string): Episode[] {
   if (topic === "all") return episodes;
   return episodes.filter((e) => e.topics.includes(topic as Episode["topics"][number]));
+}
+
+export type EpisodeSort = "latest" | "popular";
+
+export function sortEpisodes(list: Episode[], sort: EpisodeSort): Episode[] {
+  if (sort === "popular") {
+    return [...list].sort((a, b) => (b.plays ?? 0) - (a.plays ?? 0));
+  }
+  return [...list].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
 }

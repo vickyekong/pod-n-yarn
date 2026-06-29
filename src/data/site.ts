@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Real People. Real Talks. Zero Fake.",
   description:
     "A Nigerian podcast focused on authentic conversations, storytelling, culture, lifestyle, entertainment, and real-life experiences.",
-  url: "https://podnyarn.com",
+  url: "https://pod-n-yarn.vercel.app",
   email: "hello@podnyarn.com",
   phone: "+234 800 POD YARN",
   whatsapp: "https://chat.whatsapp.com/podnyarn",
@@ -24,16 +24,31 @@ export const siteConfig = {
     "Pod n' Yarn started in a Lagos studio with two friends who were tired of polished, performative content. What began as late-night gists over jollof and cold drinks became a movement — a space where Nigerians could yarn freely about love, hustle, faith, culture, and everything in between.",
 };
 
-export const navLinks = [
+export const primaryNavLinks = [
   { label: "Home", href: "/" },
   { label: "Episodes", href: "/episodes" },
   { label: "Guests", href: "/guests" },
   { label: "About", href: "/about" },
+  { label: "Community", href: "/community" },
+  { label: "Shop", href: "/shop" },
+];
+
+export const footerNavLinks = [
+  { label: "Episodes", href: "/episodes" },
+  { label: "Archive", href: "/archive" },
+  { label: "Guests", href: "/guests" },
+  { label: "About", href: "/about" },
   { label: "Hosts", href: "/hosts" },
   { label: "Community", href: "/community" },
+  { label: "Partnerships", href: "/partnerships" },
+  { label: "Press", href: "/press" },
+  { label: "Blog", href: "/blog" },
   { label: "Shop", href: "/shop" },
   { label: "Contact", href: "/contact" },
 ];
+
+/** @deprecated use primaryNavLinks */
+export const navLinks = primaryNavLinks;
 
 export const topicLabels: Record<string, string> = {
   relationships: "Relationships",

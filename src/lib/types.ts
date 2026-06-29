@@ -26,6 +26,8 @@ export interface Episode {
   youtubeUrl?: string;
   showNotes?: string;
   featured?: boolean;
+  popular?: boolean;
+  plays?: number;
 }
 
 export interface Guest {

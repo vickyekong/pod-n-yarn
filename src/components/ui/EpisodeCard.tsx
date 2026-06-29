@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Play, Headphones, Video } from "lucide-react";
 import type { Episode } from "@/lib/types";
 import { useAudioPlayer } from "@/components/layout/AudioPlayerProvider";
+import { getGuestPhoto } from "@/data/guests";
 import { formatDuration } from "@/lib/utils";
 import { topicLabels } from "@/data/site";
 import { cn } from "@/lib/utils";
@@ -12,31 +14,34 @@ import { cn } from "@/lib/utils";
 interface EpisodeCardProps {
   episode: Episode;
   variant?: "default" | "compact" | "featured";
+  index?: number;
 }
 
-export function EpisodeCard({ episode, variant = "default" }: EpisodeCardProps) {
+export function EpisodeCard({ episode, variant = "default", index = 0 }: EpisodeCardProps) {
   const { play } = useAudioPlayer();
+  const guestPhoto = getGuestPhoto(episode.guestSlug);
+  const primaryTopic = episode.topics[0];
 
   if (variant === "featured") {
     return (
       <Link
         href={`/episodes/${episode.slug}`}
-        className="group editorial-card relative overflow-hidden rounded-2xl"
+        className="group editorial-card editorial-card-lift relative overflow-hidden rounded-2xl"
       >
         <div className="relative aspect-video overflow-hidden">
           <Image
             src={episode.thumbnail}
             alt={episode.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
           <div className="absolute top-4 left-4 flex gap-2">
             <span className="flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">
               {episode.type === "video" ? <Video className="h-3 w-3" /> : <Headphones className="h-3 w-3" />}
-              {episode.type === "video" ? "Video" : "Audio"}
+              {topicLabels[primaryTopic]}
             </span>
-            <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+            <span className="rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
               {formatDuration(episode.duration)}
             </span>
           </div>
@@ -54,69 +59,87 @@ export function EpisodeCard({ episode, variant = "default" }: EpisodeCardProps) 
   }
 
   return (
-    <article className="group editorial-card flex flex-col overflow-hidden rounded-2xl">
-      <Link href={`/episodes/${episode.slug}`} className="relative aspect-[16/10] overflow-hidden">
-        <Image
-          src={episode.thumbnail}
-          alt={episode.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            play(episode);
-          }}
-          className="absolute top-1/2 left-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-white opacity-0 shadow-xl transition-all group-hover:opacity-100 hover:scale-110"
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ delay: index * 0.06, duration: 0.5 }}
+      className="group editorial-card editorial-card-lift flex flex-col overflow-hidden rounded-2xl"
+    >
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Link href={`/episodes/${episode.slug}`} className="block h-full w-full">
+          <Image
+            src={episode.thumbnail}
+            alt={episode.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </Link>
+        <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/25" />
+
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => play(episode)}
+          className="absolute top-1/2 left-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-white opacity-0 shadow-2xl ring-4 ring-accent/20 transition-opacity duration-300 group-hover:opacity-100"
           aria-label={`Play ${episode.title}`}
         >
-          <Play className="ml-1 h-6 w-6" />
-        </button>
-        <span className="absolute top-3 right-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
+          <Play className="ml-1 h-7 w-7" />
+        </motion.button>
+
+        <span className="absolute top-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
           {formatDuration(episode.duration)}
         </span>
-        <span className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-accent/90 px-2.5 py-1 text-xs font-semibold text-white">
-          {episode.type === "video" ? <Video className="h-3 w-3" /> : <Headphones className="h-3 w-3" />}
+        <span className="absolute top-3 left-3 rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">
+          {topicLabels[primaryTopic]}
         </span>
-      </Link>
-      <div className="flex flex-1 flex-col p-5">
-        <div className="mb-2 flex flex-wrap gap-1.5">
-          {episode.topics.slice(0, 2).map((topic) => (
-            <span
-              key={topic}
-              className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
-            >
-              {topicLabels[topic]}
-            </span>
-          ))}
-        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col p-5 md:p-6">
+        {guestPhoto && episode.guestName && (
+          <div className="mb-3 flex items-center gap-3">
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full ring-2 ring-accent/30">
+              <Image src={guestPhoto} alt={episode.guestName} fill className="object-cover" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent">Guest</p>
+              <p className="text-sm font-bold">{episode.guestName}</p>
+            </div>
+          </div>
+        )}
+
         <Link href={`/episodes/${episode.slug}`}>
-          <h3 className="font-heading text-lg font-bold leading-snug transition-colors group-hover:text-accent">
+          <h3 className="font-heading text-lg font-bold leading-snug transition-colors group-hover:text-accent md:text-xl">
             {episode.title}
           </h3>
         </Link>
-        {episode.guestName && (
-          <p className="mt-1 text-sm font-medium text-accent">Guest: {episode.guestName}</p>
-        )}
-        <p className={cn("mt-2 flex-1 text-sm leading-relaxed text-muted-foreground", variant === "compact" && "line-clamp-2")}>
+
+        <p
+          className={cn(
+            "mt-2 flex-1 text-sm leading-relaxed text-muted-foreground",
+            variant === "compact" && "line-clamp-2"
+          )}
+        >
           {episode.description}
         </p>
-        <div className="mt-4 flex items-center gap-3">
+
+        <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
           <button
             onClick={() => play(episode)}
-            className="flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
+            className="flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-burnt-orange"
           >
-            <Play className="h-3.5 w-3.5" /> Play
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10">
+              <Play className="h-3.5 w-3.5" />
+            </span>
+            Play Episode
           </button>
-          <Link
-            href={episode.spotifyUrl}
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            Spotify
-          </Link>
+          <span className="flex items-center gap-1 text-xs text-muted-foreground">
+            {episode.type === "video" ? <Video className="h-3 w-3" /> : <Headphones className="h-3 w-3" />}
+            {episode.type}
+          </span>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

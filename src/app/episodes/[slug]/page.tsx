@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Calendar, Clock, Headphones, Video, Share2 } from "lucide-react";
+import { EpisodeJsonLd } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { EpisodePlayer } from "@/components/episodes/EpisodePlayer";
 import { EpisodeCard } from "@/components/ui/EpisodeCard";
@@ -42,6 +43,14 @@ export default async function EpisodeDetailPage({ params }: Props) {
 
   return (
     <>
+      <EpisodeJsonLd
+        title={episode.title}
+        description={episode.description}
+        url={`${siteConfig.url}/episodes/${episode.slug}`}
+        image={episode.thumbnail}
+        datePublished={episode.publishedAt}
+        durationMinutes={episode.duration}
+      />
       <section className="bg-primary pt-28 pb-12">
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">

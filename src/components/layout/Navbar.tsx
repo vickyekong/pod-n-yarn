@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks } from "@/data/site";
+import { primaryNavLinks } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { useTheme } from "@/components/layout/ThemeProvider";
@@ -44,7 +44,7 @@ export function Navbar() {
         <Logo theme={logoTheme} />
 
         <div className="hidden items-center gap-0.5 xl:flex">
-          {navLinks.map((link) => (
+          {primaryNavLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -119,7 +119,7 @@ export function Navbar() {
             className="overflow-hidden border-t border-border/60 bg-background xl:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-4">
-              {navLinks.map((link) => (
+              {primaryNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

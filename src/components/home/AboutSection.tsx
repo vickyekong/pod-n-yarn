@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
+import { images } from "@/data/images";
 import { siteConfig } from "@/data/site";
 
 const btsImages = [
-  "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80",
-  "https://images.unsplash.com/photo-1589903308904-0d07142ebbcf?w=600&q=80",
-  "https://images.unsplash.com/photo-1478737272769-f78574dee846?w=600&q=80",
+  { src: images.studio.bts1, alt: "Microphone setup in studio" },
+  { src: images.studio.bts2, alt: "Studio lounge area" },
+  { src: images.studio.bts3, alt: "Episode planning board" },
 ];
 
 export function AboutSection() {
@@ -15,7 +16,7 @@ export function AboutSection() {
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeIn>
-            <p className="text-sm font-semibold uppercase tracking-widest text-warm-gold">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-warm-gold">
               About Pod n&apos; Yarn
             </p>
             <h2 className="font-heading mt-2 text-4xl font-extrabold md:text-5xl">
@@ -44,12 +45,17 @@ export function AboutSection() {
 
           <FadeIn delay={0.2} direction="left">
             <div className="grid grid-cols-2 gap-4">
-              {btsImages.map((src, i) => (
-                <div
-                  key={src}
-                  className={`relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 aspect-video" : "aspect-square"}`}
-                >
-                  <Image src={src} alt="Behind the scenes" fill className="object-cover" />
+              <div className="relative col-span-2 aspect-video overflow-hidden rounded-2xl">
+                <Image
+                  src={images.studio.hero}
+                  alt="Pod n' Yarn recording session"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {btsImages.map((img) => (
+                <div key={img.src} className="relative aspect-square overflow-hidden rounded-2xl">
+                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
                 </div>
               ))}
             </div>

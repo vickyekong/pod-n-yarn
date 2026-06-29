@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" fill="#0F3D2E"/>
+  <circle cx="400" cy="380" r="180" fill="#E67E22" opacity="0.3"/>
+  <ellipse cx="400" cy="720" rx="280" ry="320" fill="#1a5c45"/>
+  <text x="400" y="420" text-anchor="middle" fill="#F8F4ED" font-family="Georgia, serif" font-size="120" font-weight="bold">AD</text>
+  <text x="40" y="960" fill="#D4A017" font-family="system-ui" font-size="28" font-weight="600">Amara Dike · Community</text>
+</svg>

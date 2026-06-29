@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { PageHero } from "@/components/ui/PageHero";
 import { siteConfig } from "@/data/site";
+import { images } from "@/data/images";
 
 export const metadata: Metadata = {
   title: "About",
@@ -40,7 +41,7 @@ export default function AboutPage() {
             <FadeIn delay={0.2}>
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
+                  src={images.studio.hero}
                   alt="Pod n' Yarn studio"
                   fill
                   className="object-cover"

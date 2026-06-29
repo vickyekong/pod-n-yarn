@@ -4,21 +4,24 @@ import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import type { Episode } from "@/lib/types";
 import { EpisodeCard } from "@/components/ui/EpisodeCard";
+import { sortEpisodes, type EpisodeSort } from "@/data/episodes";
 import { topicLabels } from "@/data/site";
 import { cn } from "@/lib/utils";
 import type { Topic } from "@/lib/types";
 
 interface EpisodesSearchProps {
   episodes: Episode[];
+  showSort?: boolean;
 }
 
-export function EpisodesSearch({ episodes }: EpisodesSearchProps) {
+export function EpisodesSearch({ episodes, showSort = true }: EpisodesSearchProps) {
   const [query, setQuery] = useState("");
   const [topic, setTopic] = useState<Topic | "all">("all");
   const [type, setType] = useState<"all" | "video" | "audio">("all");
+  const [sort, setSort] = useState<EpisodeSort>("latest");
 
   const filtered = useMemo(() => {
-    return episodes.filter((ep) => {
+    let list = episodes.filter((ep) => {
       const matchesQuery =
         !query ||
         ep.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -28,16 +31,17 @@ export function EpisodesSearch({ episodes }: EpisodesSearchProps) {
       const matchesType = type === "all" || ep.type === type;
       return matchesQuery && matchesTopic && matchesType;
     });
-  }, [episodes, query, topic, type]);
+    return sortEpisodes(list, sort);
+  }, [episodes, query, topic, type, sort]);
 
   const topics: (Topic | "all")[] = [
     "all",
     "relationships",
     "career-business",
-    "entertainment",
-    "faith",
     "culture",
     "lifestyle",
+    "faith",
+    "entertainment",
     "hot-takes",
   ];
 
@@ -51,10 +55,11 @@ export function EpisodesSearch({ episodes }: EpisodesSearchProps) {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search episodes, guests, topics..."
           className="w-full rounded-2xl border border-border bg-card py-4 pr-4 pl-12 text-base outline-none transition-colors focus:ring-2 focus:ring-accent"
+          aria-label="Search episodes"
         />
       </div>
 
-      <div className="mb-6 flex flex-wrap gap-2">
+      <div className="mb-6 flex flex-wrap items-center gap-3">
         {(["all", "video", "audio"] as const).map((t) => (
           <button
             key={t}
@@ -69,6 +74,21 @@ export function EpisodesSearch({ episodes }: EpisodesSearchProps) {
             {t === "all" ? "All Types" : t}
           </button>
         ))}
+        {showSort &&
+          (["latest", "popular"] as const).map((s) => (
+            <button
+              key={s}
+              onClick={() => setSort(s)}
+              className={cn(
+                "rounded-full px-4 py-2 text-sm font-semibold capitalize transition-all",
+                sort === s
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {s}
+            </button>
+          ))}
       </div>
 
       <div className="mb-10 flex flex-wrap gap-2">
@@ -92,9 +112,9 @@ export function EpisodesSearch({ episodes }: EpisodesSearchProps) {
         {filtered.length} episode{filtered.length !== 1 ? "s" : ""} found
       </p>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((episode) => (
-          <EpisodeCard key={episode.id} episode={episode} />
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {filtered.map((episode, i) => (
+          <EpisodeCard key={episode.id} episode={episode} index={i} />
         ))}
       </div>
 

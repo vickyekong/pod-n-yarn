@@ -4,12 +4,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
+type FormType = "topic" | "question" | "story";
+
 interface CommunityFormProps {
   compact?: boolean;
+  defaultType?: FormType;
 }
 
-export function CommunityForm({ compact = false }: CommunityFormProps) {
-  const [type, setType] = useState<"topic" | "question" | "story">("topic");
+export function CommunityForm({ compact = false, defaultType = "topic" }: CommunityFormProps) {
+  const [type, setType] = useState<FormType>(defaultType);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "success">("idle");
 
@@ -25,6 +28,12 @@ export function CommunityForm({ compact = false }: CommunityFormProps) {
     { id: "question" as const, label: "Ask Question" },
     { id: "story" as const, label: "Share Story" },
   ];
+
+  const placeholders: Record<FormType, string> = {
+    topic: "What should we yarn about next?",
+    question: "Your anonymous question...",
+    story: "Share your story for a future episode...",
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -50,11 +59,7 @@ export function CommunityForm({ compact = false }: CommunityFormProps) {
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        placeholder={
-          compact
-            ? "Share your story or suggest a topic..."
-            : `Your ${type === "topic" ? "topic suggestion" : type === "question" ? "anonymous question" : "story"}...`
-        }
+        placeholder={compact ? placeholders[defaultType] : placeholders[type]}
         required
         rows={compact ? 3 : 5}
         className="w-full resize-none rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none transition-colors focus:ring-2 focus:ring-accent"
