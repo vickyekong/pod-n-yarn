@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --forest: #0F3D2E;
+  --rich-black: #111111;
+  --burnt-orange: #E67E22;
+  --warm-gold: #D4A017;
+  --cream: #F8F4ED;
+  --soft-gray: #EAEAEA;
+  --background: #F8F4ED;
+  --foreground: #111111;
+  --muted: #F0EBE3;
+  --muted-foreground: #5C5C5C;
+  --primary: #0F3D2E;
+  --primary-foreground: #FFFFFF;
+  --accent: #E67E22;
+  --accent-foreground: #FFFFFF;
+  --gold: #D4A017;
+  --border: #E0DAD0;
+  --card: #FFFFFF;
+  --card-foreground: #111111;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #F8F4ED;
+  --muted: #1A1A1A;
+  --muted-foreground: #A0A0A0;
+  --primary: #0F3D2E;
+  --primary-foreground: #F8F4ED;
+  --accent: #E67E22;
+  --accent-foreground: #FFFFFF;
+  --border: #2A2A2A;
+  --card: #1A1A1A;
+  --card-foreground: #F8F4ED;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-forest: #0F3D2E;
+  --color-cream: #F8F4ED;
+  --color-burnt-orange: #E67E22;
+  --color-warm-gold: #D4A017;
+  --font-sans: var(--font-manrope);
+  --font-heading: var(--font-syne);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-syne), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+::selection {
+  background: #E67E22;
+  color: #FFFFFF;
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #E67E22 0%, #D4A017 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-gradient-bg {
+  background: linear-gradient(135deg, #0F3D2E 0%, #1a5c45 50%, #0F3D2E 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.editorial-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.editorial-card:hover {
+  border-color: rgba(230, 126, 34, 0.4);
+  box-shadow: 0 12px 40px rgba(15, 61, 46, 0.08);
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.wave-bar {
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+.wave-bar:nth-child(6) { animation-delay: 0.5s; }
+.wave-bar:nth-child(7) { animation-delay: 0.6s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(230, 126, 34, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(230, 126, 34, 0.4); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.speech-bubble {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  width: 16px;
+  height: 16px;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+
+.show-notes {
+  line-height: 1.8;
+}
+
+.show-notes h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.show-notes p {
+  margin-bottom: 1rem;
+  color: var(--muted-foreground);
+}
