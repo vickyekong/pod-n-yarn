@@ -7,7 +7,6 @@ import { Play } from "lucide-react";
 import type { Episode } from "@/lib/types";
 import { useAudioPlayer } from "@/components/layout/AudioPlayerProvider";
 import { coHosts } from "@/data/hosts";
-import { cn } from "@/lib/utils";
 
 interface FeaturedEpisodePlayerProps {
   episode: Episode;
@@ -18,23 +17,25 @@ export function FeaturedEpisodePlayer({ episode }: FeaturedEpisodePlayerProps) {
   const [showEmbed, setShowEmbed] = useState(false);
 
   return (
-    <div className="relative">
-      {/* Host portraits */}
-      <div className="absolute -top-6 -left-6 z-10 flex -space-x-4">
-        {coHosts.map((host, i) => (
-          <motion.div
-            key={host.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 + i * 0.15 }}
-            className="relative h-16 w-16 overflow-hidden rounded-2xl border-2 border-accent shadow-xl md:h-20 md:w-20"
-          >
-            <Image src={host.photo} alt={host.name} fill className="object-cover" />
-          </motion.div>
-        ))}
-      </div>
-
+    <div className="relative z-0">
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl backdrop-blur-sm">
+        {/* Host strip — contained inside the card, no bleed into navbar */}
+        <div className="flex items-center gap-3 border-b border-white/10 bg-black/30 px-4 py-3">
+          <div className="flex -space-x-2">
+            {coHosts.map((host) => (
+              <div
+                key={host.id}
+                className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-accent ring-2 ring-primary"
+              >
+                <Image src={host.photo} alt={host.name} fill className="object-cover" />
+              </div>
+            ))}
+          </div>
+          <p className="text-xs font-medium text-white/70">
+            with {coHosts.map((h) => h.name.split(" ")[0]).join(" & ")}
+          </p>
+        </div>
+
         {showEmbed && episode.youtubeUrl ? (
           <div className="relative aspect-video">
             <iframe
@@ -89,15 +90,11 @@ export function FeaturedEpisodePlayer({ episode }: FeaturedEpisodePlayerProps) {
         )}
       </div>
 
-      <div className="mt-4 flex gap-2">
-        {["Real talk", "No filter", "Just vibes"].map((tag, i) => (
+      <div className="mt-3 flex flex-wrap gap-2">
+        {["Real talk", "No filter", "Just vibes"].map((tag) => (
           <span
             key={tag}
-            className={cn(
-              "speech-bubble text-xs text-foreground",
-              i === 1 && "animate-float"
-            )}
-            style={{ animationDelay: `${i * 0.4}s` }}
+            className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white/80"
           >
             {tag}
           </span>

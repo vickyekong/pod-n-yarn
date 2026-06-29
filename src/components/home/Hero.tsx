@@ -15,10 +15,10 @@ import { siteConfig } from "@/data/site";
 import { siteStats } from "@/data/community";
 
 const speechBubbles = [
-  { text: "No filter!", top: "12%", right: "8%" },
-  { text: "Just vibes", top: "28%", right: "18%" },
-  { text: "Real gist", top: "44%", right: "6%" },
-  { text: "Zero fake", top: "58%", right: "14%" },
+  { text: "No filter!", top: "22%", right: "6%" },
+  { text: "Just vibes", top: "38%", right: "12%" },
+  { text: "Real gist", top: "54%", right: "4%" },
+  { text: "Zero fake", top: "68%", right: "10%" },
 ];
 
 export function Hero() {
@@ -44,14 +44,14 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.9 + i * 0.15, duration: 0.5 }}
-          className="speech-bubble animate-float absolute hidden border-white/20 bg-white/10 text-white backdrop-blur-md lg:block"
+          className="hero-speech-bubble animate-float pointer-events-none absolute z-0 hidden lg:block"
           style={{ top: bubble.top, right: bubble.right, animationDelay: `${i * 0.6}s` }}
         >
           {bubble.text}
         </motion.div>
       ))}
 
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-12 px-4 pt-28 pb-12 md:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:pt-36 lg:pb-16">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-12 px-4 pt-28 pb-12 md:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:pt-36 lg:pb-16">
         <div className="flex-1">
           <FadeIn>
             <div className="mb-6 flex items-center gap-3">

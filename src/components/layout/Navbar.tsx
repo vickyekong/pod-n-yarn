@@ -29,15 +29,15 @@ export function Navbar() {
 
   const isHome = pathname === "/";
   const isTransparent = isHome && !scrolled && !isOpen;
-  const logoTheme = isTransparent && theme === "light" ? "dark" : "light";
+  const logoTheme = isTransparent ? "dark" : "light";
 
   return (
     <header
       className={cn(
         "fixed top-0 right-0 left-0 z-50 transition-all duration-500",
         isTransparent
-          ? "bg-transparent"
-          : "border-b border-border/60 bg-background/90 shadow-sm backdrop-blur-xl"
+          ? "border-b border-white/10 bg-primary/85 shadow-sm backdrop-blur-xl"
+          : "border-b border-border/60 bg-background/95 shadow-sm backdrop-blur-xl"
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 md:px-6 lg:px-8">
