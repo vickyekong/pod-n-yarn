@@ -12,10 +12,10 @@ export function MeetHosts() {
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-                The Voices
+                The Voice
               </p>
               <h2 className="font-heading mt-2 text-4xl font-extrabold md:text-5xl">
-                Meet The Hosts
+                Meet Boma Bliss
               </h2>
             </div>
             <Link
@@ -27,7 +27,7 @@ export function MeetHosts() {
           </div>
         </FadeIn>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <div className="mt-12 mx-auto max-w-md">
           {hosts.map((host, i) => (
             <FadeIn key={host.id} delay={i * 0.1}>
               <HostCard host={host} />

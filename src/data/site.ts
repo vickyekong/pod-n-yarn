@@ -7,7 +7,7 @@ export const siteConfig = {
   email: "hello@podnyarn.com",
   phone: "+234 800 POD YARN",
   whatsapp: "https://chat.whatsapp.com/podnyarn",
-  mediaKitUrl: "/media-kit.pdf",
+  mediaKitUrl: "/media-kit",
   social: {
     instagram: "https://instagram.com/podnyarn",
     twitter: "https://x.com/podnyarn",
@@ -21,7 +21,7 @@ export const siteConfig = {
   vision:
     "To become Africa's most trusted voice for unfiltered conversations that inspire, challenge, and connect.",
   story:
-    "Pod n' Yarn started in a Lagos studio with two friends who were tired of polished, performative content. What began as late-night gists over jollof and cold drinks became a movement — a space where Nigerians could yarn freely about love, hustle, faith, culture, and everything in between.",
+    "Pod n' Yarn is the brainchild of Boma Bliss — born from late-night gists in a Lagos studio and a shared frustration with polished, performative content. What started as honest conversations over jollof and cold drinks became a movement — a space where Nigerians yarn freely about love, hustle, faith, culture, and everything in between.",
 };
 
 export const primaryNavLinks = [
@@ -38,10 +38,11 @@ export const footerNavLinks = [
   { label: "Archive", href: "/archive" },
   { label: "Guests", href: "/guests" },
   { label: "About", href: "/about" },
-  { label: "Hosts", href: "/hosts" },
+  { label: "Host", href: "/hosts" },
   { label: "Community", href: "/community" },
   { label: "Partnerships", href: "/partnerships" },
   { label: "Press", href: "/press" },
+  { label: "Media Kit", href: "/media-kit" },
   { label: "Blog", href: "/blog" },
   { label: "Shop", href: "/shop" },
   { label: "Contact", href: "/contact" },

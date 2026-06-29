@@ -2,6 +2,6 @@
   <rect width="800" height="1000" fill="#0F3D2E"/>
   <circle cx="400" cy="380" r="180" fill="#1a5c45"/>
   <ellipse cx="400" cy="720" rx="280" ry="320" fill="#1a5c45"/>
-  <text x="400" y="420" text-anchor="middle" fill="#E67E22" font-family="Georgia, serif" font-size="120" font-weight="bold">NO</text>
-  <text x="40" y="960" fill="#D4A017" font-family="system-ui" font-size="28" font-weight="600">Nneka Obi · Co-Host</text>
+  <text x="400" y="420" text-anchor="middle" fill="#E67E22" font-family="Georgia, serif" font-size="120" font-weight="bold">BB</text>
+  <text x="40" y="960" fill="#D4A017" font-family="system-ui" font-size="28" font-weight="600">Boma Bliss · Host</text>
 </svg>

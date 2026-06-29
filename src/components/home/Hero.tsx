@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Play, Music } from "lucide-react";
+import { Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { Waveform } from "@/components/ui/Waveform";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
@@ -91,7 +92,7 @@ export function Hero() {
                 size="lg"
                 className="border-white/30 text-white hover:bg-white hover:text-primary"
               >
-                <Music className="h-5 w-5" />
+                <SocialIcon name="spotify" className="h-5 w-5" />
                 Listen on Spotify
               </Button>
             </div>

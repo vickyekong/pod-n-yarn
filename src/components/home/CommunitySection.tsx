@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { CommunityForm } from "@/components/forms/CommunityForm";
 import { ConfessionForm } from "@/components/forms/ConfessionForm";
@@ -59,6 +60,7 @@ export function CommunitySection() {
                 Live gists, episode polls, and voice notes from the hosts.
               </p>
               <Button href={siteConfig.whatsapp} variant="accent" className="mt-6 w-full">
+                <SocialIcon name="whatsapp" className="h-5 w-5" />
                 Join WhatsApp Group
               </Button>
             </div>

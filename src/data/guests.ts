@@ -68,6 +68,28 @@ export const guests: Guest[] = [
     quote: "The best conversations happen over peppered suya at 11pm.",
     featured: false,
   },
+  {
+    id: "7",
+    slug: "ifeanyi-mba",
+    name: "Pastor Ifeanyi Mba",
+    profession: "Pastor & Cultural Commentator",
+    photo: images.guests.ifeanyi,
+    episodeSlug: "faith-vs-culture",
+    episodeTitle: "Faith vs Culture: Can Both Coexist?",
+    quote: "Tradition and faith can coexist when we stop pretending they can't.",
+    featured: false,
+  },
+  {
+    id: "8",
+    slug: "emeka-zainab",
+    name: "Emeka & Zainab",
+    profession: "Diaspora Voices",
+    photo: images.guests.emeka,
+    episodeSlug: "japa-or-stay",
+    episodeTitle: "Japa or Stay? The Big Decision",
+    quote: "The guilt of leaving and the fear of staying — both are real.",
+    featured: false,
+  },
 ];
 
 export function getFeaturedGuests(): Guest[] {
@@ -78,7 +100,7 @@ export function getGuestBySlug(slug: string): Guest | undefined {
   return guests.find((g) => g.slug === slug);
 }
 
-export function getGuestPhoto(slug?: string): string | undefined {
-  if (!slug) return undefined;
-  return getGuestBySlug(slug)?.photo;
+export function getGuestPhoto(slug?: string): string {
+  if (!slug) return images.guests.default;
+  return getGuestBySlug(slug)?.photo ?? images.guests.default;
 }

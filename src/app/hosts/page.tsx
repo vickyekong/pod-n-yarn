@@ -5,27 +5,25 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { hosts } from "@/data/hosts";
 
 export const metadata: Metadata = {
-  title: "Hosts",
-  description: "Meet the voices behind Pod n' Yarn — Nneka, Tunde, and Amara.",
+  title: "Host",
+  description: "Meet Boma Bliss — the voice behind Pod n' Yarn.",
 };
 
 export default function HostsPage() {
   return (
     <>
       <PageHero
-        label="The Team"
-        title="Meet The Hosts"
-        description="The storytellers, producers, and community builders behind every episode."
+        label="The Voice"
+        title="Meet Boma Bliss"
+        description="The storyteller, host, and creator behind every honest conversation on Pod n' Yarn."
       />
       <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {hosts.map((host, i) => (
-              <FadeIn key={host.id} delay={i * 0.1}>
-                <HostCard host={host} />
-              </FadeIn>
-            ))}
-          </div>
+        <div className="mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
+          {hosts.map((host, i) => (
+            <FadeIn key={host.id} delay={i * 0.1}>
+              <HostCard host={host} />
+            </FadeIn>
+          ))}
         </div>
       </section>
     </>

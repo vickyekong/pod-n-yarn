@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { images } from "@/data/images";
 
 interface LogoProps {
   theme?: "light" | "dark";
@@ -13,13 +15,17 @@ export function Logo({ theme = "light", className }: LogoProps) {
     <Link href="/" className={cn("group flex items-center gap-2.5", className)}>
       <div
         className={cn(
-          "flex h-10 w-10 items-center justify-center rounded-xl font-heading text-lg font-extrabold transition-transform group-hover:scale-105",
-          isDark
-            ? "bg-accent text-white"
-            : "bg-primary text-primary-foreground"
+          "relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl transition-transform group-hover:scale-105",
+          isDark ? "ring-1 ring-white/20" : "ring-1 ring-border"
         )}
       >
-        P
+        <Image
+          src={images.logo.icon}
+          alt=""
+          width={40}
+          height={40}
+          className="h-full w-full object-cover"
+        />
       </div>
       <div className="flex flex-col leading-none">
         <span

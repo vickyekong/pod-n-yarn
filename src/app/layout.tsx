@@ -58,6 +58,10 @@ export const metadata: Metadata = {
     images: [images.og],
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [{ url: "/images/logo/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/images/logo/icon.svg", type: "image/svg+xml" }],
+  },
   alternates: {
     types: {
       "application/rss+xml": `${siteConfig.url}/feed.xml`,

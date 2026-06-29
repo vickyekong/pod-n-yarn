@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import type { Episode } from "@/lib/types";
 import { useAudioPlayer } from "@/components/layout/AudioPlayerProvider";
-import { coHosts } from "@/data/hosts";
+import { primaryHost } from "@/data/hosts";
 
 interface FeaturedEpisodePlayerProps {
   episode: Episode;
@@ -19,20 +19,12 @@ export function FeaturedEpisodePlayer({ episode }: FeaturedEpisodePlayerProps) {
   return (
     <div className="relative z-0">
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl backdrop-blur-sm">
-        {/* Host strip — contained inside the card, no bleed into navbar */}
         <div className="flex items-center gap-3 border-b border-white/10 bg-black/30 px-4 py-3">
-          <div className="flex -space-x-2">
-            {coHosts.map((host) => (
-              <div
-                key={host.id}
-                className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-accent ring-2 ring-primary"
-              >
-                <Image src={host.photo} alt={host.name} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-accent ring-2 ring-primary">
+            <Image src={primaryHost.photo} alt={primaryHost.name} fill className="object-cover" />
           </div>
           <p className="text-xs font-medium text-white/70">
-            with {coHosts.map((h) => h.name.split(" ")[0]).join(" & ")}
+            Hosted by <span className="font-semibold text-white">{primaryHost.name}</span>
           </p>
         </div>
 
